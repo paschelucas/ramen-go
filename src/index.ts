@@ -5,9 +5,11 @@ import {orderRouter} from "./router/order/order.router";
 import {configDotenv} from "dotenv";
 
 import mongoose from 'mongoose';
+import {proteinRouter} from "./router/protein/protein.router";
+import {brothRouter} from "./router/broth/broth.router";
 configDotenv()
 
-const uri = "mongodb+srv://test-user:gfbRkttpn9ZiYMmT@challenge-cluster.spicyha.mongodb.net/ramen-go?retryWrites=true&w=majority&appName=challenge-cluster";
+const uri = String(process.env.MONGODB_URL);
 main().catch(err => console.log(err));
 
 async function main() {
@@ -19,6 +21,8 @@ app.use(logger())
 
 
 app.route('order', orderRouter)
+app.route('broth', brothRouter)
+app.route('protein', proteinRouter)
 
 
 const port = 3000

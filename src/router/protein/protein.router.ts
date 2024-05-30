@@ -8,4 +8,4 @@ const proteinController = new ProteinController(proteinService);
 export const proteinRouter = new Hono()
 
 // @ts-ignore
-proteinRouter.post('/get-all/', async (c) => proteinController.getAllProteins())
+proteinRouter.get('/get-all/', async (c) => proteinController.getAllProteins(c))

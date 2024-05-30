@@ -8,4 +8,4 @@ const brothController = new BrothController(brothService);
 export const brothRouter = new Hono()
 
 // @ts-ignore
-brothRouter.post('/get-all/', async (c) => brothController.getAllBroths(c))
+brothRouter.get('/get-all/', async (c) => brothController.getAllBroths(c))

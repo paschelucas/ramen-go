@@ -1,5 +1,6 @@
 import {ProteinService} from "../../services/protein.service";
 import {Protein} from "../../types/schemas/schemas";
+import {Context} from "hono";
 
 export class ProteinController {
     constructor(
@@ -7,7 +8,8 @@ export class ProteinController {
     ) {
     }
 
-    public async getAllProteins(): Promise<Protein[]> {
-        return await this.proteinService.findAll();
+    public async getAllProteins(c: Context) {
+        const proteins: Protein[] = await this.proteinService.findAll();
+        return c.json(proteins, 200)
     }
 }
