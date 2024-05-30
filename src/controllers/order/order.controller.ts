@@ -1,4 +1,4 @@
-import {OrderService} from "../services/order.service";
+import {OrderService} from "../../services/order.service";
 import {Context} from "hono";
 
 export class OrderController {
